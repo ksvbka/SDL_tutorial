@@ -14,19 +14,6 @@
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
 
-//Loads individual image as texture
-SDL_Texture* LoadTexture(std::string path, SDL_Renderer* renderer) {
-    SDL_Surface* img_surface = IMG_Load(path.c_str());
-    if (!img_surface)
-        throw std::runtime_error("Canot load img");
-    SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, img_surface);
-    if (!texture)
-        throw std::runtime_error("Unable to create texture");
-
-    SDL_FreeSurface(img_surface);
-    return texture;
-}
-
 int ex_08_geometry_rendering() {
     /* Init SDL */
     if (SDL_Init(SDL_INIT_VIDEO) < 0 )
@@ -37,7 +24,7 @@ int ex_08_geometry_rendering() {
         throw std::runtime_error("Warning: Linear texture filtering not enabled!");
 
     /* Init Window*/
-    SDL_Window* window = SDL_CreateWindow("SDL Tutorial 07",
+    SDL_Window* window = SDL_CreateWindow("SDL Tutorial 08",
                                           SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
                                           SCREEN_WIDTH, SCREEN_HEIGHT,
                                           SDL_WINDOW_SHOWN
