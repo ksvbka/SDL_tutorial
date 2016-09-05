@@ -46,7 +46,7 @@ int ex_07_texture_loading_and_rendering(){
     /* Create render for window*/
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     if (!renderer)
-        throw std::runtime_error("Can not crate renderer!");
+        throw std::runtime_error("Can not create renderer!");
     SDL_SetRenderDrawColor( renderer, 0xFF, 0xFF, 0xFF, 0xFF );
 
     /* Initialize PNG loading*/
